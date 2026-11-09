@@ -1,0 +1,55 @@
+{
+  "name": "cows-and-bulls",
+  "version": "1.0.0",
+  "description": "Игра Bulls and Cows. Компьютер загадывает число из уникальных цифр, игрок угадывает его, получая подсказки bulls и cows.",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "deploy": "vite build && gh-pages -d dist",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theFoxTale/cows-and-bulls.git"
+  },
+  "lint-staged": {
+    "*.{ts,js}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,css}": [
+      "prettier --write"
+    ]
+  },
+  "author": "theFoxTale",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/theFoxTale/cows-and-bulls/issues"
+  },
+  "homepage": "https://thefoxtale.github.io/cows-and-bulls/",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.6.6",
+    "eslint": "^10.14.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-unicorn": "^79.0.0",
+    "gh-pages": "^6.3.0",
+    "globals": "^17.14.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
+    "prettier": "^3.9.10",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.72.1",
+    "vite": "^8.3.6",
+    "vitest": "^5.1.0"
+  }
+}
