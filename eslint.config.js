@@ -67,6 +67,15 @@ export default defineConfig([
       'max-lines-per-function': ['error', 50],
       'no-console': 'off',
       'no-plusplus': 'off',
+
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+        },
+      ],
     },
   },
   {
