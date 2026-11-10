@@ -7,7 +7,7 @@
     "skipLibCheck": true,
 
     "paths": {
-      "@core": ["src/core/index.ts"]
+      "@core": ["./src/core/index.ts"]
     },
 
     /* Bundler mode */
