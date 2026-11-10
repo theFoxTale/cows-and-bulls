@@ -1,6 +1,5 @@
-import { type Base, BASE_CONFIGS } from '@core';
-
-const shouldRejectAll = (_char: string): boolean => false;
+import { type Base } from './digits';
+import { getBaseData } from './digits';
 
 /**
 Создаёт функцию-предикат для проверки, является ли символ допустимой цифрой
@@ -10,10 +9,12 @@ const shouldRejectAll = (_char: string): boolean => false;
 @returns функция, возвращающая true, если символ — допустимая цифра
 */
 export function createDigitValidator(base: Base): (char: string) => boolean {
-  const baseData = BASE_CONFIGS.find((item) => item.value === base);
-  if (!baseData) return shouldRejectAll;
+  const baseData = getBaseData(base);
+  const allowedDigits = baseData ? baseData.allowed : '';
 
   return (char: string) => {
-    return typeof char === 'string' && char.length === 1 ? baseData.allowed.includes(char.toLowerCase()) : false;
+    //typeof char === 'string' сделан специально - защита от пользовательского ввода
+    const isSingleChar = typeof char === 'string' && char.length === 1;
+    return isSingleChar && allowedDigits.includes(char.toLowerCase());
   };
 }

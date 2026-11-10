@@ -19,3 +19,5 @@ export const BASE_CONFIGS: BaseData[] = [
   { value: 10, label: 'dec', allowed: '0123456789' },
   { value: 16, label: 'hex', allowed: '0123456789abcdef' },
 ];
+
+export const getBaseData = (base: Base): BaseData | undefined => BASE_CONFIGS.find((item) => item.value === base);
