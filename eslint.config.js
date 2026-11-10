@@ -47,6 +47,7 @@ export default defineConfig([
       'unicorn/prefer-event-target': 'off',
       'unicorn/numeric-separators-style': 'off',
       'unicorn/prefer-logical-operator-over-ternary': 'off',
+      'unicorn/no-asterisk-prefix-in-documentation-comments': 'off',
 
       'unicorn/name-replacements': [
         'error',
