@@ -7,7 +7,7 @@
 
 ---
 
-## 📌 Ссылки
+## Ссылки
 
 - **Деплой:** [Ссылка](https://github.com/theFoxTale/cows-and-bulls)
 - **DESIGN.md:** [DESIGN.md](./DESIGN.md)
@@ -23,10 +23,10 @@
 | Функция                                | Коммит с тестами (red)                                          | Коммит с реализацией (green)                        |
 | -------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------- |
 | `generateSecret(length, base, random)` | `379d02fe` — `test: add failing tests for generateSecret`       | `fd322571` — `feat: implement generateSecret`       |
-| `evaluateGuess(secret, guess)`         | `<hash>` — `test: add failing tests for evaluateGuess`          | `<hash>` — `feat: implement evaluateGuess`          |
+| `evaluateGuess(secret, guess)`         | `e7282e8c` — `test: add failing tests for evaluateGuess`        | `c8ba57a8` — `feat: implement evaluateGuess`        |
 | `isValidGuess(guess, length, base)`    | `55d4c10f` — `test: add failing tests for isValidGuess`         | `05ee1884` — `feat: implement isValidGuess`         |
 | `createDigitValidator(base)`           | `f9839cab` — `test: add failing tests for createDigitValidator` | `9034702b` — `feat: implement createDigitValidator` |
-| `countPossibleSecrets(length, base)`   | `<hash>` — `test: add failing tests for countPossibleSecrets`   | `<hash>` — `feat: implement countPossibleSecrets`   |
+| `countPossibleSecrets(length, base)`   | `<hash>` — `test: add failing tests for countPossibleSecrets`   | `7afddda9` — `feat: implement countPossibleSecrets` |
 
 **Прочие коммиты** (настройка инструментов, UI, документация, рефакторинг) — отдельно от тестов и логики, по конвенции RS School.
 
