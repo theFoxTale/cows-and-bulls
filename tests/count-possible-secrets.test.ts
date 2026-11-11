@@ -18,7 +18,7 @@ describe('countPossibleSecrets — значения P(base, length)', () => {
     { length: 6, base: 10, expected: 151_200 }, // 10 x 9 x 8 x 7 x 6 x 5
     { length: 6, base: 16, expected: 5_765_760 }, // 16 x 15 x 14 x 12 x 11
   ])('P($base, $length) = $expected', ({ length, base, expected }) => {
-    expect(countPossibleSecrets(length, base)).toBe(expected);
+    expect(countPossibleSecrets(length, base as Base)).toBe(expected);
   });
 });
 
@@ -54,6 +54,6 @@ describe('countPossibleSecrets — ошибки', () => {
   });
 
   it('неподдерживаемая база → throw', () => {
-    expect(() => countPossibleSecrets(2, 3)).toThrow();
+    expect(() => countPossibleSecrets(2, 3 as Base)).toThrow();
   });
 });

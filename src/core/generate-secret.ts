@@ -20,8 +20,8 @@ const checkRandomValidity = (value: number): void => {
  * @returns секретное число (строка символов в нижнем регистре)
  */
 export function generateSecret(length: number, base: Base, random: () => number = Math.random): string {
-  if (length < 0) throw new RangeError('Parameter length must be non-negative');
   if (!Number.isSafeInteger(length)) throw new RangeError('Parameter length must be an integer');
+  if (length < 0) throw new RangeError('Parameter length must be non-negative');
 
   if (length === 0) return '';
 
