@@ -1,6 +1,6 @@
 1. Задание: [Bulls and Cows](https://github.com/rolling-scopes-school/tasks/blob/master/fullstack-engineering/tasks/bulls-and-cows/README.md)
 2. Скриншоты:
-   
+
 3. Деплой: [Ссылка](https://github.com/theFoxTale/cows-and-bulls)
 4. Выполнено: 09.11.2026 / дедлайн 10.11.2026
 5. Оценка: 150 / 150
@@ -20,13 +20,13 @@
 
 Для каждой обязательной функции ядра — отдельный коммит с **падающими** тестами, затем отдельный коммит с реализацией, которая делает тесты зелёными.
 
-| Функция                                | Коммит с тестами (red)                                        | Коммит с реализацией (green)                      |
-|----------------------------------------|---------------------------------------------------------------|---------------------------------------------------|
-| `generateSecret(length, base, random)` | `<hash>` — `test: add failing tests for generateSecret`       | `<hash>` — `feat: implement generateSecret`       |
-| `evaluateGuess(secret, guess)`         | `<hash>` — `test: add failing tests for evaluateGuess`        | `<hash>` — `feat: implement evaluateGuess`        |
-| `isValidGuess(guess, length, base)`    | `<hash>` — `test: add failing tests for isValidGuess`         | `<hash>` — `feat: implement isValidGuess`         |
-| `createDigitValidator(base)`           | `<hash>` — `test: add failing tests for createDigitValidator` | `<hash>` — `feat: implement createDigitValidator` |
-| `countPossibleSecrets(length, base)`   | `<hash>` — `test: add failing tests for countPossibleSecrets` | `<hash>` — `feat: implement countPossibleSecrets` |
+| Функция                                | Коммит с тестами (red)                                          | Коммит с реализацией (green)                        |
+| -------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------- |
+| `generateSecret(length, base, random)` | `379d02fe` — `test: add failing tests for generateSecret`       | `fd322571` — `feat: implement generateSecret`       |
+| `evaluateGuess(secret, guess)`         | `<hash>` — `test: add failing tests for evaluateGuess`          | `<hash>` — `feat: implement evaluateGuess`          |
+| `isValidGuess(guess, length, base)`    | `55d4c10f` — `test: add failing tests for isValidGuess`         | `05ee1884` — `feat: implement isValidGuess`         |
+| `createDigitValidator(base)`           | `f9839cab` — `test: add failing tests for createDigitValidator` | `9034702b` — `feat: implement createDigitValidator` |
+| `countPossibleSecrets(length, base)`   | `<hash>` — `test: add failing tests for countPossibleSecrets`   | `<hash>` — `feat: implement countPossibleSecrets`   |
 
 **Прочие коммиты** (настройка инструментов, UI, документация, рефакторинг) — отдельно от тестов и логики, по конвенции RS School.
 
@@ -47,6 +47,7 @@ npm run preview   # vite preview — предпросмотр production-сбо�
 ```
 
 Husky:
+
 - `pre-commit` → `lint-staged` (ESLint + Prettier только на изменённых файлах), **тесты не запускает**
 - `pre-push` → `npm test`, блокирует push с красными тестами
 
