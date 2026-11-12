@@ -138,6 +138,44 @@ export type Action =
  * @returns новое состояние; если действие неприменимо — исходный `state`
  */
 export function reduce(state: GameState, action: Action): GameState {
-  console.log(action);
-  return { status: 'settings', settings: state.settings };
+  switch (action.type) {
+    case 'UPDATE_SETTINGS': {
+      return state.status === 'settings' ? { status: 'settings', settings: action.settings } : state;
+    }
+
+    case 'START': {
+      if (state.status !== 'settings') return state;
+      return {
+        status: 'playing',
+        settings: state.settings,
+        secret: action.secret,
+        history: [],
+        startedAt: action.now,
+      };
+    }
+
+    case 'GUESS': {
+      if (state.status !== 'playing') return state;
+      return {
+        ...state,
+        history: [...state.history, { guess: action.guess, result: action.result }],
+      };
+    }
+
+    case 'WIN': {
+      if (state.status !== 'playing') return state;
+      return {
+        status: 'won',
+        settings: state.settings,
+        secret: state.secret,
+        history: state.history,
+        startedAt: state.startedAt,
+        finishedAt: action.now,
+      };
+    }
+
+    case 'RESET': {
+      return { status: 'settings', settings: state.settings };
+    }
+  }
 }
