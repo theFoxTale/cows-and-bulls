@@ -25,11 +25,11 @@ function renderSpan(className: string, text: string): HTMLElement {
   return createElement({ tag: 'span', className: [className], text });
 }
 
-function renderHistoryEntry(entry: PlayingState['history'][number], index: number): HTMLElement {
+function renderHistoryEntry(entry: PlayingState['history'][number], attempt: number): HTMLElement {
   return createDiv({
     className: ['history__entry'],
     children: [
-      renderSpan('history__attempt', `#${String(index + 1)}`),
+      renderSpan('history__attempt', `#${String(attempt)}`),
       renderSpan('history__guess', entry.guess),
       renderSpan('history__bulls', `🐂 ${String(entry.result.bulls)}`),
       renderSpan('history__cows', `🐄 ${String(entry.result.cows)}`),
@@ -39,11 +39,22 @@ function renderHistoryEntry(entry: PlayingState['history'][number], index: numbe
 
 function renderHistory(history: PlayingState['history']): HTMLElement {
   if (history.length === 0) {
-    return createDiv({ className: ['history', 'history--empty'], text: 'Пока ещё ни один отряд не ходил в разведку.' });
+    return createDiv({
+      className: ['history', 'history--empty'],
+      text: 'Пока ещё ни один отряд не ходил в разведку.',
+    });
   }
+
+  // Добавляет номер к каждой попытке
+  const entries = history.map((entry, index) => ({ entry, attempt: index + 1 }));
+
   return createDiv({
     className: ['history'],
-    children: history.map(renderHistoryEntry),
+    // Обратный порядок при отображении: последние сверху
+    // Иначе к последнему элементу нужно прокручивать, это очень не удобно.
+    children: entries
+        .toReversed()
+        .map(({ entry, attempt }) => renderHistoryEntry(entry, attempt)),
   });
 }
 

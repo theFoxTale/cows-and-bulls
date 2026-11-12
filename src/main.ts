@@ -3,6 +3,7 @@ import { renderPlaying, renderSettings, renderWon } from '@layout';
 import { createDiv } from '@dom';
 
 import './styles/index.css';
+import { addRecord, createRecord, loadRecords, saveRecords } from './storage/records.ts';
 
 const root = createDiv({ className: ['app'] });
 document.body.append(root);
@@ -22,7 +23,7 @@ function createApp(initialState: GameState): void {
         break;
       }
       case 'won': {
-        root.replaceChildren(renderWon(state, dispatch));
+        root.replaceChildren(renderWon(state, loadRecords(), dispatch));
         break;
       }
     }
@@ -34,7 +35,8 @@ function createApp(initialState: GameState): void {
     if (state === previous) return;
 
     if (state.status === 'won' && previous.status !== 'won') {
-      console.log('Won');
+      const updated = addRecord(loadRecords(), createRecord(state));
+      saveRecords(updated);
     }
 
     render();
