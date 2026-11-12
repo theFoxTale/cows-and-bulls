@@ -16,7 +16,7 @@ describe('renderPlaying', () => {
     expect(el.querySelector('.history--empty')?.textContent).toBe('Пока ещё ни один отряд не ходил в разведку.');
   });
 
-  it('рендерит историю попыток в порядке добавления', () => {
+  it('рендерит историю попыток в порядке, обратном порядку добавления', () => {
     const state = {
       ...playingState,
       history: [
@@ -26,7 +26,7 @@ describe('renderPlaying', () => {
     };
     const el = renderPlaying(state, vi.fn());
     const guesses = [...el.querySelectorAll('.history__guess')].map((n) => n.textContent);
-    expect(guesses).toEqual(['5678', '9012']);
+    expect(guesses).toEqual(['9012', '5678']);
   });
 
   it('не рендерит секрет', () => {
