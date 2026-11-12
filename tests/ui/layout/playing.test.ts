@@ -13,7 +13,7 @@ const playingState: PlayingState = {
 describe('renderPlaying', () => {
   it('показывает сообщение при пустой истории', () => {
     const el = renderPlaying(playingState, vi.fn());
-    expect(el.querySelector('.history--empty')?.textContent).toBe('No guesses yet.');
+    expect(el.querySelector('.history--empty')?.textContent).toBe('Пока ещё ни один отряд не ходил в разведку.');
   });
 
   it('рендерит историю попыток в порядке добавления', () => {
@@ -98,6 +98,8 @@ describe('renderPlaying', () => {
     form.dispatchEvent(new Event('submit', { cancelable: true }));
 
     expect(dispatch).not.toHaveBeenCalled();
-    expect(el.querySelector('.guess-form__error')?.textContent).toContain('Need 4');
+    expect(el.querySelector('.guess-form__error')?.textContent).toContain(
+      'Необходимо собрать 4 уникальных номеров разведчиков',
+    );
   });
 });

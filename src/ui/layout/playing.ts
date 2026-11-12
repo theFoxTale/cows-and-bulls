@@ -12,9 +12,9 @@ function renderHeader(settings: PlayingState['settings'], history: PlayingState[
   return createDiv({
     className: ['playing__header'],
     children: [
-      renderStat(`Base: ${String(settings.base)}`),
-      renderStat(`Length: ${String(settings.length)}`),
-      renderStat(`Attempts: ${String(history.length)}`),
+      renderStat(`Система шифра: ${String(settings.base)}`),
+      renderStat(`Длина шифра: ${String(settings.length)}`),
+      renderStat(`Попыток: ${String(history.length)}`),
     ],
   });
 }
@@ -39,7 +39,7 @@ function renderHistoryEntry(entry: PlayingState['history'][number], index: numbe
 
 function renderHistory(history: PlayingState['history']): HTMLElement {
   if (history.length === 0) {
-    return createDiv({ className: ['history', 'history--empty'], text: 'No guesses yet.' });
+    return createDiv({ className: ['history', 'history--empty'], text: 'Пока ещё ни один отряд не ходил в разведку.' });
   }
   return createDiv({
     className: ['history'],
@@ -56,7 +56,7 @@ function createGuessInput(settings: PlayingState['settings']) {
     attrs: {
       type: 'text',
       maxlength: String(settings.length),
-      placeholder: `${String(settings.length)} digits, base ${String(settings.base)}`,
+      placeholder: `${String(settings.length)} цифры, система ${String(settings.base)}`,
       autocomplete: 'off',
       spellcheck: 'false',
       inputmode: settings.base === 16 ? 'text' : 'numeric',
@@ -75,7 +75,7 @@ function createGuessInput(settings: PlayingState['settings']) {
   const submit = createElement({
     tag: 'button',
     className: ['btn', 'btn--primary'],
-    text: 'Guess',
+    text: 'Разведать',
     attrs: { type: 'submit' },
   });
   const error = createDiv({ className: ['guess-form__error'], text: '' });
@@ -96,10 +96,10 @@ function validateGuess(
   history: PlayingState['history'],
 ): string | null {
   if (!isValidGuess(guess, settings.length, settings.base)) {
-    return `Need ${String(settings.length)} unique digits (base ${String(settings.base)})`;
+    return `Необходимо собрать ${String(settings.length)} уникальных номеров разведчиков`;
   }
   if (history.some((entry) => entry.guess === guess)) {
-    return 'You already tried this guess';
+    return 'Этот разведотряд уже отправляли, дроид R2-МУУ помнит всё.';
   }
   return null;
 }
@@ -141,7 +141,7 @@ function createResetButton(dispatch: (action: Action) => void): HTMLElement {
   const reset = createElement({
     tag: 'button',
     className: ['btn', 'btn--ghost'],
-    text: 'Give up',
+    text: 'Сдаться Империи копыт',
     attrs: { type: 'button' },
   });
   reset.addEventListener('click', () => {
@@ -151,7 +151,7 @@ function createResetButton(dispatch: (action: Action) => void): HTMLElement {
 }
 
 //--------------------------------------------------------------------------------
-// Рендеринг окна с игрой
+// Рендеринг экрана с игровой областью
 export function renderPlaying(state: PlayingState, dispatch: (action: Action) => void): HTMLElement {
   const { form, input, error } = createGuessInput(state.settings);
   attachSubmitHandler(form, input, error, state, dispatch);
@@ -160,8 +160,8 @@ export function renderPlaying(state: PlayingState, dispatch: (action: Action) =>
     className: ['playing'],
     children: [
       renderHeader(state.settings, state.history),
-      renderHistory(state.history),
       form,
+      renderHistory(state.history),
       createResetButton(dispatch),
     ],
   });
