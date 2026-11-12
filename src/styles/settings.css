@@ -1,0 +1,57 @@
+/* ============================================================
+   Экран SETTINGS
+============================================================ */
+
+.settings__subtitle {
+  margin: 0 0 var(--space-4);
+  color: var(--color-text-muted);
+}
+
+.settings__form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-3) var(--space-4);
+  align-items: center;
+}
+
+.settings__label {
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.settings__select {
+  padding: var(--space-2) var(--space-3);
+  font: inherit;
+  font-family: var(--font-mono);
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.settings__select:focus-visible {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.settings__select option:disabled {
+  color: var(--color-text-muted);
+  opacity: 0.5;
+}
+
+.settings__info {
+  grid-column: 1 / -1;
+  padding: var(--space-3);
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+}
+
+.settings__form .btn {
+  grid-column: 1 / -1;
+  margin-top: var(--space-2);
+}

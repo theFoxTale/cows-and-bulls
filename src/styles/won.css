@@ -1,0 +1,108 @@
+/* ============================================================
+   Экран WON — результат
+   ============================================================ */
+
+.won__result {
+  text-align: center;
+}
+
+.won__label {
+  margin: 0 0 var(--space-2);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-success);
+}
+
+.won__secret {
+  margin: 0;
+  padding: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 2.5rem;
+  letter-spacing: 0.3em;
+  color: var(--color-success);
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+}
+
+/* ============================================================
+   Экран WON — статистика
+   ============================================================ */
+
+.won__stats {
+  display: flex;
+  justify-content: space-around;
+  gap: var(--space-4);
+  padding: var(--space-3) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.won__stat {
+  text-align: center;
+}
+
+.won__stat-value {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.won__stat-label {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+/* ============================================================
+   Экран WON — таблица рекордов
+   ============================================================ */
+
+.won__records h2 {
+  margin: 0 0 var(--space-3);
+  text-align: center;
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+}
+
+.records {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.records__row {
+  display: grid;
+  grid-template-columns: 40px 1fr 80px 80px;
+  gap: var(--space-3);
+  align-items: center;
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  background: var(--color-bg);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+}
+
+.records__row--current {
+  border-color: var(--color-success);
+  background: color-mix(in srgb, var(--color-success) 12%, var(--color-bg));
+}
+
+.records__rank {
+  color: var(--color-text-muted);
+}
+
+.records__config {
+  color: var(--color-text-muted);
+}
+
+.records__attempts {
+  text-align: right;
+  font-weight: 600;
+  color: var(--color-success);
+}
+
+.records__time {
+  text-align: right;
+  color: var(--color-text-muted);
+}
