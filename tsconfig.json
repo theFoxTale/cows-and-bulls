@@ -8,7 +8,8 @@
 
     "paths": {
       "@core": ["./src/core/index.ts"],
-      "@dom": ["./src/ui/dom/index.ts"]
+      "@dom": ["./src/ui/dom/index.ts"],
+      "@layout": ["./src/ui/layout/index.ts"]
     },
 
     /* Bundler mode */

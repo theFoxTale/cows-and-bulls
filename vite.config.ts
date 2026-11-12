@@ -6,6 +6,7 @@ export default defineConfig({
     alias: {
       '@core': new URL('src/core', import.meta.url).pathname,
       '@dom': new URL('src/ui/dom', import.meta.url).pathname,
+      '@layout': new URL('src/ui/layout', import.meta.url).pathname,
     },
   },
   test: {
