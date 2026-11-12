@@ -6,3 +6,5 @@ export { countPossibleSecrets } from './count-possible-secrets';
 
 export type { Base } from './digits';
 export type { GuessResult } from './evaluate-guess';
+
+export { BASE_CONFIGS } from './digits';
